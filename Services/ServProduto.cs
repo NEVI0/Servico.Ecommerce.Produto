@@ -4,6 +4,7 @@
     {
         Produto GetProdutoById(int id);
         Produto CreateProduto(ProdutoDTO dto);
+        Produto UpdateProdutoQuantidade(UpdateProdutoQuantidadeDTO dto);
     }
 
     public class ServProduto : ServProdutoAbstract
@@ -39,6 +40,21 @@
             produto.Quantidade = dto.quantidade;
 
             _dataContext.Add(produto);
+            _dataContext.SaveChanges();
+
+            return produto;
+        }
+
+        public Produto UpdateProdutoQuantidade(UpdateProdutoQuantidadeDTO dto)
+        {
+            var produto = _dataContext.Produto.FirstOrDefault(produto => produto.Id == dto.id);
+
+            if (produto == null)
+            {
+                throw new Exception("Produto não encontrado!");
+            }
+
+            produto.Quantidade = dto.quantidade;
             _dataContext.SaveChanges();
 
             return produto;

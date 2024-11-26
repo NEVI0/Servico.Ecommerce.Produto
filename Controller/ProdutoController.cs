@@ -42,5 +42,20 @@ namespace Ecommerce.Produto
                 return BadRequest(ex.Message);
             }
         }
+
+        [Route("/api/produto/{id}/quantidade")]
+        [HttpPut]
+        public IActionResult PostProduto(UpdateProdutoQuantidadeDTO dto)
+        {
+            try
+            {
+                var produto = _servProduto.UpdateProdutoQuantidade(dto);
+                return Ok(produto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
