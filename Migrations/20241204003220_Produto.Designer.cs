@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Produto.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241125013805_Produto")]
+    [Migration("20241204003220_Produto")]
     partial class Produto
     {
         /// <inheritdoc />
@@ -32,12 +32,13 @@ namespace Ecommerce.Produto.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("Quantidade")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float?>("Valor")
+                    b.Property<float>("Valor")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");

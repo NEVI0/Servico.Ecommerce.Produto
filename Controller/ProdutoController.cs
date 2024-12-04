@@ -43,7 +43,7 @@ namespace Ecommerce.Produto
             }
         }
 
-        [Route("/api/produto/{id}/quantidade")]
+        [Route("/api/produto/quantidade")]
         [HttpPut]
         public IActionResult PostProduto(UpdateProdutoQuantidadeDTO dto)
         {
