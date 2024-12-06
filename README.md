@@ -17,3 +17,25 @@ Este microsserviço destina-se aos seguintes tipos de usuários:
 
 - **Administradores**: Responsáveis por cadastrar, atualizar e gerenciar os produtos no sistema.
 - **Sistemas de E-commerce**: Sistemas que consomem a API para acessar os dados dos produtos e realizar operações, como adicionar itens ao carrinho de compras ou exibir produtos disponíveis.
+
+## Requisitos Funcionais
+- *Cadastro de Produtos*: Permite o cadastro de novos produtos com informações como nome, descrição, valor, imagem e quantidade.
+- *Consulta de Produtos: Permite a consulta de informações de um produto específico usando o **id*.
+- *Atualização de Quantidade de Produtos*: Permite a atualização da quantidade de produtos em estoque.
+- *Armazenamento Seguro de Dados*: Garante que os dados sensíveis dos produtos, como valor e quantidade, sejam manipulados de forma segura.
+
+## Endpoints da API
+
+### 1. *Criar Produto*
+- *Método*: POST
+- *URL*: /api/produto
+- *Descrição*: Cria um novo produto no sistema.
+- *Corpo da Requisição*:
+```json
+{
+    "nome": "Produto Exemplo",
+    "descricao": "Descrição do produto",
+    "imagem": "url_da_imagem.jpg",
+    "valor": 99.99,
+    "quantidade": 50
+}
